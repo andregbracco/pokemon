@@ -1,0 +1,6 @@
+<h1>Eliminar pokemon</h1>
+<form method="POST">{% csrf_token %}
+    <p>Eliminar {{ pokemon.name }}? </p>
+    <button type="submit">Eliminar</button>
+
+</form>

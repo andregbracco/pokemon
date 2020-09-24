@@ -1,0 +1,16 @@
+<h1>Buscar por región</h1>
+
+<form method="GET">
+    {% csrf_token %}
+    <input type="text" name="nombre_cargado_usuario" placeholder="ingrese región">
+    <button type = "submit"> Buscar </button>
+</form>
+
+<h2>Lista bichos</h2>
+
+    {% for e in bichos %}
+    <li> {{e}} {{e.region.name}} </li>
+    {% empty %}
+    <h3>Lista Vacía</h3>
+    {% endfor %}
+

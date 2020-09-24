@@ -1,0 +1,98 @@
+
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+    <title>Pokemon lista</title>
+</head>
+<body>
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Bichos</li>
+            <li>
+                <a href="{% url 'bicho_app:bichosall' %}">Listar</a>
+            </li>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><input type="search" placeholder="Buscar"></li>
+            <li><button type="button" class="button">Buscar</button></li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid-container">
+	<div class="grid-x">
+		<h1>Lista Bichos</h1>
+
+		<form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+			<div class="cell large-7">
+				<input type="text" id="kword" name="kword" placeholder="Buscar bicho">
+			</div>
+			<div class="cell large-2">
+				<button type="submit" class="success button">Buscar</button>
+			</div>
+		</form>
+
+		<div class="cell">
+			<table>
+				<thead>
+				<tr>
+					<th width="200">ID</th>
+					<th>Pokemon</th>
+					<th width="150">Region</th>
+					<th width="150">PC</th>
+					<th width="150">Acción</th>
+				</tr>
+				</thead>
+				<tbody>
+					{% for e in bicho %}
+
+						<tr>
+							<td>{{ e.id }}</td>
+							<td>{{ e.name }}</td>
+							<td>{{ e.region }}</td>
+							<td>{{ e.pc }}</td>
+							<td><a class="button warning" href="{% url 'bicho_app:detallebicho' e.id %}">Ver</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="cell">
+		{% if is_paginated %}
+		<nav aria-label="Pagination">
+			<ul class="pagination">
+				{% if page_obj.has_previous %}
+				<li class="pagination-previous">
+					<a href="?page={{page_obj.previous_page_number}}">Atrás</a>
+				</li>
+				{% endif %}
+
+				{% for pagina in paginator.page_range %}
+				<li><a href="?page={{pagina}}" aria-label="Page 2">{{ pagina }}</a>
+				</li>
+				{% endfor %}
+				{% if page_obj.has_next %}
+				<li class="pagination-next">
+					<a href="?page={{page_obj.next_page_number}}">Siguiente</a>
+				</li>
+				{% endif %}
+			</ul>
+		</nav>
+		{% endif %}
+	</div>
+
+</div>
+</body>
+</html>
