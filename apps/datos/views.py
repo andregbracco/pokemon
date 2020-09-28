@@ -6,6 +6,9 @@ from django.urls import reverse_lazy
 
 from .models import Region, Tipo, Pokemon
 
+class InicioView(TemplateView):
+	template_name = 'inicio.html'
+
 class ListAllPokemon(ListView):
 	template_name = 'bichos/listapokemon.html'
 	paginate_by = 10

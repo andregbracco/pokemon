@@ -1,4 +1,23 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Pokemon</li>
+            <li>
+                <a href="{% url 'bicho_app:bichosall' %}">Listar</a>
+            </li>
+            <li><a href='#'>Regiones</a></li>
+            <li><a href='#'>Tipos</a></li>
+            <li><a href='#'>Ataques</a></li>
 
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><input type="search" placeholder="Nombre"></li>
+            <li><a href="{% url 'bicho_app:agregarbicho' %}" class="button" class="button">Agregar Nuevo</a></li>
+        </ul>
+    </div>
+</div>
 
 
 
