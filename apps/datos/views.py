@@ -10,7 +10,7 @@ class InicioView(TemplateView):
 	template_name = 'inicio.html'
 
 class ListAllPokemon(ListView):
-	template_name = 'bichos/listapokemon.html'
+	template_name = 'bichos/lista-nueva-todos.html'
 	paginate_by = 10
 	ordering = "-id"
 	model = Pokemon

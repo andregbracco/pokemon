@@ -1,6 +1,51 @@
-<h1>Agregar Bicho</h1>
+{% extends 'base.html' %}
+{% block title %}
+ Nuevo Pokemon
+{% endblock title %}
+{% block body %}
+{% include "includes/header.html" %}
 
-<form method="POST">{% csrf_token %}
-    {{ form.as_p }}
-    <button type = "submit"> Guardar </button>
-</form>
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Agregar Pokemon</h1>
+        <form class="cell grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="medium-6 cell">
+                <label>Nombre:
+                    {{ form.name }}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Región:
+                    {{ form.region }}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>PC:
+                    {{ form.pc }}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>PS:
+                    {{ form.ps }}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Tipo:
+                    {{ form.tipos }}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Imagen:
+                    {{ form.avatar }}
+                </label>
+            </div>
+            <div class="cell">
+                <button type="submit" class="success button">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}
+
+

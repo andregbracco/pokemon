@@ -7,7 +7,41 @@
 {% block body %}
 
 {% include 'includes/header.html' %}
-<!-- empezó imagen-->
+
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell large 5">
+      <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+        <div class="orbit-wrapper">
+
+          <div class="orbit-controls">
+            <button class="orbit-previous"><span class="show-for-sr">Anterior</span>&#9664;&#xFE0E;</button>
+            <button class="orbit-next"><span class="show-for-sr">Siguiente</span>&#9654;&#xFE0E;</button>
+          </div>
+
+          <ul class="orbit-container">
+            <li class="is-active orbit-slide">
+              <figure class="orbit-figure">
+                <img class="orbit-image" src={% static "img/portada1.jpg" %} alt="Space">
+                <figcaption class="orbit-caption">Pokemon</figcaption>
+              </figure>
+            </li>
+            <li class="orbit-slide">
+              <figure class="orbit-figure">
+                <img class="orbit-image" src={% static 'img/portada2.jpg' %} alt="Space">
+                <figcaption class="orbit-caption">Pokemon</figcaption>
+              </figure>
+            </li>
+          </ul>
+          </div>
+
+        </div>
+      </div>   
+    </div>
+  </div>
+</div>
+
+<!--
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
     <div class="orbit-wrapper">
       <div class="orbit-controls">
@@ -30,7 +64,7 @@
       </ul>
     </div>
   </div>
-<!-- terminó imagen-->
 
+-->
 
 {% endblock body %}
